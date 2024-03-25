@@ -7,13 +7,27 @@
 				Book Catalog
 			{% endblock %}
 		</title>
+		<style>
+			body {
+				/* background-color: #E4E4DE; */
+				background-color: #C4C5BA;
+				font-family: sans-serif;
+			}
+			h2 {
+				list-style-type: none;
+				margin: 0;
+				padding: 25px;
+				overflow: hidden;
+				background-color: #E4E4DE;
+			}
+		</style>
 
 		{% block stylesheets %}{% endblock %}
 
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-		<h1>Symfony 7 Web Application</h1>
+		<h2>Symfony 7 Web Application: Book Catalog</h2>
 		{% block body %}{% endblock %}
 	</body>
 </html>

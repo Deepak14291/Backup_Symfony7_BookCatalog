@@ -8,10 +8,12 @@
 	<style>
 		table,
 		th,
-		td {
+		td,
+		tr {
 			border: 1px solid;
-			border-collapse: collapse;
 			text-align: center;
+			border-collapse: collapse;
+			padding: 10px;
 		}
 	</style>
 {% endblock %}
@@ -23,11 +25,10 @@
 		</a>
 	</p>
 	<table>
-		<tr>
-			<th>Book Name</th>
-			<th>Book Author</th>
-			<th>Book Genre</th>
-		</tr>
+		<th>Book Name</th>
+		<th>Book Author</th>
+		<th>Book Genre</th>
+
 		{% for book in books %}
 			<tr>
 				<td>{{ book.BookName}}</td>

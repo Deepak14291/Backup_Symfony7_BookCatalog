@@ -5,30 +5,27 @@
 {% endblock %}
 
 {% block body %}
+	<h3>Update Book</h3>
 	<div>
 		{{ form_start(form) }}
 		<div>
 			{{ form_errors(form) }}
 		</div>
 		<div>
-			{{ form_label(form.book_name,'Please enter book name') }}
-		</div>
-		<div>
+			{{ form_label(form.book_name,'Book Name') }}
 			{{ form_widget(form.book_name) }}
 		</div>
+		<br>
 		<div>
-			{{ form_label(form.book_author,'Please enter book author') }}
-		</div>
-		<div>
+			{{ form_label(form.book_author,'Book Author') }}
 			{{ form_widget(form.book_author) }}
 		</div>
-
+		<br>
 		<div>
-			{{ form_label(form.book_genre,'Please enter book genre') }}
-		</div>
-		<div>
+			{{ form_label(form.book_genre,'Book Genre') }}
 			{{ form_widget(form.book_genre) }}
 		</div>
+		<br>
 		<div>
 			<button type="submit">Add</button>
 		</div>
