@@ -31,11 +31,8 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $book = $form->getData();
             $entityManager->persist($book);
-            // dd($student);
             $entityManager->flush();
-
             $this->addFlash('Success', 'Book information successfully saved to database');
-
             return $this->redirectToRoute('app_book');
         }
 
