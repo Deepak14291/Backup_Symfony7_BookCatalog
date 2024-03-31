@@ -28,6 +28,10 @@
 	</head>
 	<body>
 		<h2>Symfony 7 Web Application: Book Catalog</h2>
+		{% for message in app.flashes('Success') %}
+			<br>
+			<div style="color: green">{{message}}</div>
+		{% endfor %}
 		{% block body %}{% endblock %}
 	</body>
 </html>

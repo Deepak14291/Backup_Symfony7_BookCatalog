@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BookController extends AbstractController
 {
+
     #[Route('/books', name: 'app_book')]
     #[Route('/', name: 'app_book')]
     public function index(BooksRepository $books): Response
@@ -32,7 +33,7 @@ class BookController extends AbstractController
             $book = $form->getData();
             $entityManager->persist($book);
             $entityManager->flush();
-            $this->addFlash('Success', 'Book information successfully saved to database');
+            $this->addFlash('Success', 'Book has been successfully added');
             return $this->redirectToRoute('app_book');
         }
 
@@ -45,20 +46,19 @@ class BookController extends AbstractController
     }
 
     #[Route('/book/{id}/update', name: 'update_book')]
-    public function update(Books $book, Request $request, EntityManagerInterface $entityManager): Response
-    {
+    public function update(
+        Books $book,
+        Request $request,
+        EntityManagerInterface $entityManager
+    ): Response {
         $form = $this->createForm(BookType::class, $book);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $book = $form->getData();
             $entityManager->persist($book);
-            // dd($student);
             $entityManager->flush();
-
-            $this->addFlash('Success', 'Book information successfully updated to database');
-
+            $this->addFlash('Success', 'Book details are successfully updated');
             return $this->redirectToRoute('app_book');
         }
 
@@ -71,10 +71,13 @@ class BookController extends AbstractController
     }
 
     #[Route('/book/{id}/delete', name: 'delete_book')]
-    public function delete(Books $book, Request $request, EntityManagerInterface $entityManager)
+    public function delete(Books $book, EntityManagerInterface $entityManager)
     {
         $entityManager->remove($book);
         $entityManager->flush();
+
+        $this->addFlash('Success', 'Book successfully deleted');
         return $this->redirectToRoute('app_book');
     }
+
 }
