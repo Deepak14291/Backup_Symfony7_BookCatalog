@@ -40,7 +40,8 @@ class BookController extends AbstractController
         return $this->render(
             'book/add.html.twig',
             [
-                'form' => $form
+                'form' => $form,
+                // 'errors' => $errors
             ]
         );
     }

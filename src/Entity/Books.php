@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BooksRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BooksRepository::class)]
 class Books
@@ -14,12 +15,15 @@ class Books
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The book name field is required")]
     private ?string $book_name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The book author field is required")]
     private ?string $book_author = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "The book genre field is required")]
     private ?string $book_genre = null;
 
     public function getId(): ?int
@@ -32,7 +36,7 @@ class Books
         return $this->book_name;
     }
 
-    public function setBookName(string $book_name): static
+    public function setBookName(?string $book_name): static
     {
         $this->book_name = $book_name;
 
@@ -44,7 +48,7 @@ class Books
         return $this->book_author;
     }
 
-    public function setBookAuthor(string $book_author): static
+    public function setBookAuthor(?string $book_author): static
     {
         $this->book_author = $book_author;
 
@@ -56,7 +60,7 @@ class Books
         return $this->book_genre;
     }
 
-    public function setBookGenre(string $book_genre): static
+    public function setBookGenre(?string $book_genre): static
     {
         $this->book_genre = $book_genre;
 

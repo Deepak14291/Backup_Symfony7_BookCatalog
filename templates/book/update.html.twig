@@ -6,8 +6,11 @@
 
 {% block body %}
 	<h3>Update Book</h3>
+	{{ form_errors(form.book_name)}}
+	{{ form_errors(form.book_author)}}
+	{{ form_errors(form.book_genre) }}
 	<div>
-		{{ form_start(form) }}
+		{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
 		<div>
 			{{ form_errors(form) }}
 		</div>

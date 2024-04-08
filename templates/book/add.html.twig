@@ -1,36 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Add new a new book
+	Add a new book
 {% endblock %}
 
 {% block body %}
+
 	<h3>Add a new book to the catalog</h3>
+	{{ form_errors(form.book_name)}}
+	{{ form_errors(form.book_author)}}
+	{{ form_errors(form.book_genre) }}
 	<div>
-		{{ form_start(form) }}
+		{{ form_start(form, {'attr':{'novalidate':'novalidate'}}) }}
 		<div>
 			{{ form_errors(form) }}
 		</div>
 		<div>
 			{{ form_label(form.book_name,'Book Name') }}
 			{{ form_widget(form.book_name) }}
+
 		</div>
 		<br>
 		<div>
 			{{ form_label(form.book_author,'Book Author') }}
 			{{ form_widget(form.book_author) }}
+
 		</div>
 		<br>
 		<div>
 			{{ form_label(form.book_genre,'Book Genre') }}
 			{{ form_widget(form.book_genre) }}
+
 		</div>
 		<br>
 		<div>
 			<button type="submit">Add</button>
 		</div>
-		{{ form_end(form) }}
-	</div>
+		{{ form_end(form) }}</div>
 	<p>
 		Home Page
 		<a href={{path('app_book')}}>
